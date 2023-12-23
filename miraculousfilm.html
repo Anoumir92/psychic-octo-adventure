@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de Photos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: #000000;
+        }
+
+        #searchBar {
+            width: 300px;
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        #photoContainer {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            justify-content: center;
+        }
+
+        .photo {
+            width: 160px;
+            height: 270px;
+            margin: 10px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 14px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchBar" placeholder="Rechercher une photo..." oninput="filterPhotos()">
+    <div id="photoContainer">
+        <a href="film.html"><img class="photo" id="MISSION : IMPOSSIBLE (1996) HD" src="IMG_9149.jpeg" alt="Miraculous"></a>
+        <a href="film2.html"><img class="photo" id="MISSION : IMPOSSIBLE 2 (2000) HD" src="IMG_9150.jpeg" alt="Nature"></a>
+        <a href="film3.html"><img class="photo" id="MISSION : IMPOSSIBLE 3 (2006) HD" src="IMG_9151.jpeg" alt="Nature"></a>
+             <a href="film4.html"><img class="photo" id="MISSION : IMPOSSIBLE - PROTOCOLE FANTÔME (2011) HD" src="IMG_9152.jpeg" alt="Nature"></a>
+                   <a href="film5.html"><img class="photo" id="MISSION : IMPOSSIBLE - ROGUE NATION (2015) HD" src="IMG_9153.jpeg" alt="Nature"></a>
+                       <a href="film6.html"><img class="photo" id="MISSION : IMPOSSIBLE - FALLOUT (2018) HD" src="IMG_9154.jpeg" alt="Nature"></a>
+                           <a href="film7.html"><img class="photo" id="MISSION: IMPOSSIBLE – DEAD RECKONING PARTIE 1 (2023) HD" src="IMG_9155.jpeg" alt="Nature"></a>
+        <!-- Ajoutez d'autres photos avec des IDs ici -->
+    </div>
+
+    <script>
+        function filterPhotos() {
+            var searchInput = document.getElementById('searchBar').value.toLowerCase();
+            var photos = document.getElementsByClassName('photo');
+
+            for (var i = 0; i < photos.length; i++) {
+                var photoId = photos[i].id.toLowerCase();
+                if (photoId.includes(searchInput)) {
+                    photos[i].style.display = 'inline-block';
+                } else {
+                    photos[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
